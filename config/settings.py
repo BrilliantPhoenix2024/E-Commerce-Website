@@ -151,6 +151,9 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+# all auth settings
+ACCOUNT_SESSION_REMEMBER = True
+
 # crispy_form config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
