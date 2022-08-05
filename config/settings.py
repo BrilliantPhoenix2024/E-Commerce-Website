@@ -153,6 +153,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # all auth settings
 ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 
 # crispy_form config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
