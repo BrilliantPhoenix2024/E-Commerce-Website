@@ -1,11 +1,358 @@
 {% extends '_base.html' %}
 
 {% block page_content %}
-    <h1> My Products </h1>
-    {% for product in products %}
-        {% cycle 'orange' 'whitesmoke' 'yellow' as bgcolor silent %}
-        <a href="{{ product.get_absolute_url }}">
-            <h5 style="background-color: {{ bgcolor }}">{{ product.title }}</h5>
-        </a>
-    {% endfor %}
+
+<body dir='rtl'>
+
+    <!-- Preloader Start -->
+    {#    <div class="ShoppingYar-preloader active">#}
+    {#        <div class="ShoppingYar-preloader-inner h-100 d-flex align-items-center justify-content-center">#}
+    {#            <div class="ShoppingYar-child ShoppingYar-bounce1"></div>#}
+    {#            <div class="ShoppingYar-child ShoppingYar-bounce2"></div>#}
+    {#            <div class="ShoppingYar-child zuka-bounce3"></div>#}
+    {#        </div>#}
+    {#    </div>#}
+    <!-- Preloader End -->
+
+    <!-- Main Wrapper Start -->
+    <div class="wrapper">
+        <!-- Header Start -->
+        <header class="header">
+            <div class="header-inner fixed-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-9 col-lg-8 col-5 col-xs-0 col-none col-sm-block p-0">
+                            <nav class="main-navigation">
+                                <div class="site-branding" style="margin-right: 30px;">
+                                    <a href="index.html" class="logo">
+                                        <figure class="logo--normal d-none d-sm-block">
+                                            <img class="px-5" src="assets/img/codingyar_logo.png"
+                                                 style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="mainmenu-nav d-none d-lg-block w-100 pr-3">
+                                    <ul class="mainmenu d-lg-flex jusity-content-end jusity-content-lg-start pt-4">
+                                        <li class="mainmenu__item menu-item-has-children active">
+                                            <a href="index.html" class="mainmenu__link">
+                                                <span class="mm-text">خانه</span>
+                                            </a>
+                                        </li>
+                                        <li class="mainmenu__item menu-item-has-children">
+                                            <a href="Blog.html" class="mainmenu__link">
+                                                <span class="mm-text">وبلاگ</span>
+                                            </a>
+                                        </li>
+                                        <li class="mainmenu__item menu-item-has-children">
+                                            <a href="#" class="mainmenu__link">
+                                                <span class="mm-text">صفحات</span>
+                                            </a>
+                                        </li>
+                                        <li class="mainmenu__item">
+                                            <a href="contact-us.html" class="mainmenu__link">
+                                                <span class="mm-text">تماس با ما</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-sm-7 col-12 p-0">
+                            <ul class="header-toolbar">
+                                <li class="header-toolbar__item">
+                                    <a href="wishlist.html" class="header-toolbar__btn mx-4">
+                                        <i class="flaticon flaticon-like"></i>
+                                    </a>
+                                </li>
+                                <li class="header-toolbar__item mini-cart-item">
+                                    <a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
+                                        <i class="flaticon flaticon-shopping-cart"></i>
+                                        <sup class="mini-cart-count">2</sup>
+                                    </a>
+                                </li>
+                                <li class="header-toolbar__item user-info">
+                                    <a href="my-account.html" class="header-toolbar__btn">
+                                        <i class="flaticon flaticon-user"></i>
+                                    </a>
+                                    <ul class="user-info-menu">
+                                        <li>
+                                            <a class="text-right" href="my-account.html">حساب کاربری</a>
+                                        </li>
+                                        <li>
+                                            <a class="text-right" href="cart.html">سبد خرید</a>
+                                        </li>
+                                        <li>
+                                            <a class="text-right" href="wishlist.html">علاقه مندی ها</a>
+                                        </li>
+                                        <li>
+                                            <a class="text-right" href="order-tracking.html">تاریخچه سفارشات</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="header-toolbar__item">
+                                    <a href="#searchForm" class="header-toolbar__btn toolbar-btn">
+                                        <i class="flaticon flaticon-search"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mobile-menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+
+        <!-- Main Content Wrapper Start -->
+        <div class="main-content-wrapper container-fluid">
+            <div class="shop-page-wrapper shop-fullwidth">
+                <div class="container">
+                    <div class="row mb--50">
+                        <div class="col-12">
+                            <div class="shop-toolbar">
+                                <div class="container row align-items-center">
+                                    <div class="col-lg-12 mb-md--50 mb-xs--10">
+                                        <div class="shop-toolbar__left d-flex align-items-sm-center align-items-start flex-sm-row flex-column">
+                                            <p class="product-pages">نمایش ۱-۲۰ از ۴۹</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid shop-products">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="tab-content" id="product-tab-content">
+                                <div class="tab-pane fade show active" id="nav-all">
+                                    <div class="row xxl-block-grid-6 grid-space-20">
+                                        <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
+                                            <div class="ShoppingYar-product">
+                                                <div class="product-inner">
+                                                    <figure class="product-image">
+                                                        <a href="product-details.html">
+                                                            <img src="https://dkstatics-public.digikala.com/digikala-products/15d774761e234a15c1c559ac540963baad9e229f_1631704695.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90"
+                                                                 alt="Products">
+                                                        </a>
+                                                        <div class="ShoppingYar-product-action">
+                                                            <div class="product-action d-flex">
+                                                                <a href="wishlist.html" class="action-btn">
+                                                                    <i class="flaticon flaticon-like"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <span class="product-badge">تخفیف ویژه</span>
+                                                    </figure>
+                                                    <div class="product-info">
+                                                        <h3 class="product-title h6 mb--15">
+                                                            <a href="product-details.html">پتوی مسافرتی</a>
+                                                        </h3>
+                                                        <div class="product-price-wrapper mb--30">
+                                                            <span class="money text-success">۵۹,۰۰۰ تومان</span>
+                                                            <span class="money-separator">-</span>
+                                                            <span class="old-price text-danger">
+                                                                <span class="money text-danger">۸۰,۰۰۰ تومان</span>
+                                                            </span>
+                                                        </div>
+                                                        <a href="cart.html"
+                                                           class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه
+                                                            کردن به سبد خرید</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
+                                            <div class="ShoppingYar-product">
+                                                <div class="product-inner">
+                                                    <figure class="product-image">
+                                                        <a href="product-details.html">
+                                                            <img src="https://dkstatics-public.digikala.com/digikala-products/4140472.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90"
+                                                                 alt="Products">
+                                                        </a>
+                                                        <div class="ShoppingYar-product-action">
+                                                            <div class="product-action d-flex">
+                                                                <a href="wishlist.html" class="action-btn">
+                                                                    <i class="flaticon flaticon-like"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </figure>
+                                                    <div class="product-info">
+                                                        <h3 class="product-title mb--15">
+                                                            <a href="product-details.html">کلاه زمستانی طرف برف</a>
+                                                        </h3>
+                                                        <div class="product-price-wrapper mb--30">
+                                                            <span class="money">۱۳۸,۰۰۰ تومان</span>
+                                                        </div>
+                                                        <a href="cart.html"
+                                                           class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه
+                                                            کردن به سبد خرید</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <nav class="pagination-wrap mt--35 mt-md--25 pb-5">
+                                <ul class="pagination">
+                                    <li><a href="#" class="next page-number"><i
+                                            class="fa fa-angle-double-right"></i></a></li>
+                                    <li><span class="current page-number">1</span></li>
+                                    <li><a href="#" class="page-number">2</a></li>
+                                    <li><a href="#" class="page-number">3</a></li>
+                                    <li><a href="#" class="prev page-number"><i class="fa fa-angle-double-left"></i></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content Wrapper Start -->
+
+        <!-- Footer Start-->
+        <footer class="footer">
+            <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9 text-center">
+                            <div class="footer-widget mb--50">
+                                <div class="textwidget">
+                                    <img src="assets/img/codingyar_logo.png" alt="Logo">
+                                </div>
+                            </div>
+                            <div class="footer-widget mb--50 pb--1">
+                                <ul class="footer-menu">
+                                    <li><a href="">درباره ما</a></li>
+                                    <li><a href="">قوانین و مقررات</a></li>
+                                    <li><a href="">تماس با ما</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-widget">
+                                Codingyar.com © | all rights reserved
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End-->
+
+        <!-- Search form Popup Start -->
+        <div class="searchform__popup" id="searchForm">
+            <a href="#" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
+            <div class="searchform__body">
+                <p>در باکس زیر عبارت خود را وارد کنید</p>
+                <form class="searchform">
+                    <input type="text" name="popup-search" id="popup-search" class="searchform__input"
+                           placeholder="جستجو در بین محصولات...">
+                    <button type="submit" class="searchform__submit"><i
+                            class="flaticon flaticon-magnifying-glass-icon"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- Search form Popup End -->
+
+        <!-- Mini Cart Start -->
+        <aside class="mini-cart" id="miniCart">
+            <div class="mini-cart-wrapper">
+                <a href="" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
+                <div class="mini-cart-inner">
+                    <h3 class="mini-cart__heading mb--40 mb-lg--30 text-right">سبد خرید</h3>
+                    <div class="mini-cart__content">
+                        <ul class="mini-cart__list text-right">
+                            <li class="mini-cart__product d-flex justify-content-between">
+                                <div class="mini-cart__product__image">
+                                    <a href="#">
+                                        <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                    </a>
+                                </div>
+                                <div class="mini-cart__product__content pt-2">
+                                    <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                        <a href="#"> محصول سماره یک </a>
+                                        <a href="#" class="">
+                                            &#10060;
+                                        </a>
+                                    </span>
+                                    <span class="mini-cart__product__quantity">
+                                        <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="mini-cart__product d-flex justify-content-between">
+                                <div class="mini-cart__product__image">
+                                    <a href="#">
+                                        <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                    </a>
+                                </div>
+                                <div class="mini-cart__product__content pt-2">
+                                    <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                        <a href="#"> محصول سماره یک </a>
+                                        <a href="#" class="">
+                                            &#10060;
+                                        </a>
+                                    </span>
+                                    <span class="mini-cart__product__quantity">
+                                        <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="mini-cart__product d-flex justify-content-between">
+                                <div class="mini-cart__product__image">
+                                    <a href="#">
+                                        <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                    </a>
+                                </div>
+                                <div class="mini-cart__product__content pt-2">
+                                    <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                        <a href="#"> محصول سماره یک </a>
+                                        <a href="#" class="">
+                                            &#10060;
+                                        </a>
+                                    </span>
+                                    <span class="mini-cart__product__quantity">
+                                        <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="mini-cart__total">
+                            <span>جمع کل</span>
+                            <span class="ammount">۱۴۸,۰۰۰ تومان</span>
+                        </div>
+                        <div class="mini-cart__buttons">
+                            <a href="cart.html" class="btn btn-fullwidth btn-bg-sand mb--20">مشاهده سبد خرید</a>
+                            <a href="checkout.html" class="btn btn-fullwidth btn-bg-sand">پرداخت</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Mini Cart End -->
+
+        <!-- Global Overlay Start -->
+        <div class="ShoppingYar-global-overlay"></div>
+        <!-- Global Overlay End -->
+
+    </div>
+    <!-- Main Wrapper End -->
+
+
+    <!-- ************************* JS Files ************************* -->
+
+    <!-- jQuery JS -->
+    <script src="assets/js/vendor.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
 {% endblock %}
