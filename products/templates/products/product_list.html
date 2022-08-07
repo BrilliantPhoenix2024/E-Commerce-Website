@@ -4,6 +4,8 @@
     <h1> My Products </h1>
     {% for product in products %}
         {% cycle 'orange' 'grey' 'yellow' as bgcolor silent %}
-        <h5 style="background-color: {{ bgcolor }}">{{ product.title }}</h5>
+        <a href="">
+            <h5 style="background-color: {{ bgcolor }}">{{ product.title }}</h5>
+        </a>
     {% endfor %}
 {% endblock %}
