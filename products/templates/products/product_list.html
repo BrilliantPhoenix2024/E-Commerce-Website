@@ -3,7 +3,7 @@
 {% block page_content %}
     <h1> My Products </h1>
     {% for product in products %}
-        {% cycle 'orange' 'grey' 'yellow' as bgcolor silent %}
+        {% cycle 'orange' 'whitesmoke' 'yellow' as bgcolor silent %}
         <a href="{{ product.get_absolute_url }}">
             <h5 style="background-color: {{ bgcolor }}">{{ product.title }}</h5>
         </a>
