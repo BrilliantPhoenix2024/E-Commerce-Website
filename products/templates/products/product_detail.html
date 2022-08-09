@@ -1,5 +1,6 @@
 {% extends '_base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block page_content %}
 
@@ -75,7 +76,7 @@
                                 </a>
                                 <a class="m-0 product-data-tab__link nav-link" id="nav-reviews-tab" data-toggle="tab"
                                    href="#nav-reviews" role="tab" aria-selected="true">
-                                    <span>نظرات (۱)</span>
+                                    <span>نظرات {{ product.comments.count }}</span>
                                 </a>
                             </div>
                             <div class="tab-content product-data-tab__content" id="product-tabContent">
@@ -116,7 +117,7 @@
                                 <div class="tab-pane fade" id="nav-reviews" role="tabpanel"
                                      aria-labelledby="nav-reviews-tab">
                                     <div class="product-reviews">
-                                        <h3 class="review__title">۱ نظر برای {{ product.title }}</h3>
+                                        <h3 class="review__title">{{ product.comments.count }}نظر برای {{ product.title }}</h3>
                                         <ul class="review__list">
                                             {% for comment in product.comments.all %}
                                                 <li class="review__item">
@@ -153,38 +154,44 @@
                                                 <div class="col-lg-8 m-auto">
                                                     <span class="reply-title pull-right">نظر خود را بنویسید</span>
                                                     <br>
-                                                    <form action="#" class="form text-right">
-                                                        <div class="form-notes mb--20">
-                                                            <p class="my-3"><span class="required">*</span>ایمیل شما
-                                                                برای دیگران نشان داده نمیشود.</p>
-                                                        </div>
-                                                        <div class="form__group mb--10">
-                                                            <label class="form__label d-block" for="email">متن نظر
-                                                                شما<span class="required">*</span></label>
-                                                            <textarea name="review" id="review"
-                                                                      class="form__input form__input--textarea"></textarea>
-                                                        </div>
-                                                        <div class="form__group mb--20">
-                                                            <label class="form__label d-block" for="name">نام شما<span
-                                                                    class="required">*</span></label>
-                                                            <input type="text" name="name" id="name"
-                                                                   class="form__input">
-                                                        </div>
-                                                        <div class="form__group mb--20">
-                                                            <label class="form__label d-block" for="email">ایمیل
-                                                                شما<span class="required">*</span></label>
-                                                            <input type="email" name="email" id="email"
-                                                                   class="form__input">
-                                                        </div>
-                                                        <div class="form__group">
-                                                            <div class="form-row">
-                                                                <div class="col-12">
-                                                                    <input type="submit" value="ارسال"
-                                                                           class="btn-submit">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                    <form action="{% url 'comment_create' product.id %}" method="post">
+                                                        {% csrf_token %}
+                                                        {{ comment_form|crispy }}
+                                                        <input type="submit" value="ارسال">
                                                     </form>
+
+{#                                                    <form action="#" class="form text-right">#}
+{#                                                        <div class="form-notes mb--20">#}
+{#                                                            <p class="my-3"><span class="required">*</span>ایمیل شما#}
+{#                                                                برای دیگران نشان داده نمیشود.</p>#}
+{#                                                        </div>#}
+{#                                                        <div class="form__group mb--10">#}
+{#                                                            <label class="form__label d-block" for="email">متن نظر#}
+{#                                                                شما<span class="required">*</span></label>#}
+{#                                                            <textarea name="review" id="review"#}
+{#                                                                      class="form__input form__input--textarea"></textarea>#}
+{#                                                        </div>#}
+{#                                                        <div class="form__group mb--20">#}
+{#                                                            <label class="form__label d-block" for="name">نام شما<span#}
+{#                                                                    class="required">*</span></label>#}
+{#                                                            <input type="text" name="name" id="name"#}
+{#                                                                   class="form__input">#}
+{#                                                        </div>#}
+{#                                                        <div class="form__group mb--20">#}
+{#                                                            <label class="form__label d-block" for="email">ایمیل#}
+{#                                                                شما<span class="required">*</span></label>#}
+{#                                                            <input type="email" name="email" id="email"#}
+{#                                                                   class="form__input">#}
+{#                                                        </div>#}
+{#                                                        <div class="form__group">#}
+{#                                                            <div class="form-row">#}
+{#                                                                <div class="col-12">#}
+{#                                                                    <input type="submit" value="ارسال"#}
+{#                                                                           class="btn-submit">#}
+{#                                                                </div>#}
+{#                                                            </div>#}
+{#                                                        </div>#}
+{#                                                    </form>#}
                                                 </div>
                                             </div>
                                         </div>
