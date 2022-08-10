@@ -37,7 +37,7 @@
                                 {{ product.description }}
                             </p>
                             <div class="my-5 py-5 product-price-wrapper mb--25">
-                                <span class="money text-success">{{ product.price }} تومان</span>
+                                <span class="money text-success">{{ product.price }}{% trans '$' %}</span>
 {#                                <span class="price-separator">-</span>#}
 {#                                <span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>#}
                             </div>
@@ -70,7 +70,7 @@
                             <div class="nav nav-tabs product-data-tab__head" id="product-tab" role="tablist">
                                 <a class="m-0 product-data-tab__link nav-link active" id="nav-description-tab"
                                    data-toggle="tab" href="#nav-description" role="tab" aria-selected="true">
-                                    <span>{% trans 'Product descriptin' %}</span>
+                                    <span>{% trans 'Product description' %}</span>
                                 </a>
                                 <a class="m-0 product-data-tab__link nav-link" id="nav-info-tab" data-toggle="tab"
                                    href="#nav-info" role="tab" aria-selected="true">

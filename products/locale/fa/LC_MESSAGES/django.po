@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-10 09:41+0330\n"
+"POT-Creation-Date: 2022-08-10 10:00+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: .\templates\products\product_detail.html:40
+msgid "$"
+msgstr "تومان"
+
 #: .\templates\products\product_detail.html:53
 msgid "Add to card"
-msgstr ""
+msgstr "اضافه کردن به سبد خرید"
 
 #: .\templates\products\product_detail.html:73
-msgid "Product descriptin"
-msgstr ""
+msgid "Product description"
+msgstr "توضیحات محصول"
 
 #: .\templates\products\product_detail.html:158
 msgid "Write your comment"
-msgstr ""
+msgstr "نظر خود را بنویسید"
 
 #: .\templates\products\product_detail.html:164
 msgid "Send"
-msgstr ""
+msgstr "ارسال"
