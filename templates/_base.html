@@ -42,7 +42,7 @@
                         <div class="site-branding" style="margin-right: 30px;">
                             <a href="index.html" class="logo">
                                 <figure class="logo--normal d-none d-sm-block">
-                                    <img class="px-5" src="{% static 'img/codingyar_logo.png' %}"
+                                    <img class="px-5" src="{% static 'img/shop-logo.webp' %}"
                                          style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
                                 </figure>
                             </a>
@@ -142,6 +142,48 @@
     <!-- Main JS -->
     <script src="{% static 'js/main.js' %}"></script>
 
-</body>
+<!-- Footer Start-->
+<footer class="footer">
+    <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 text-center">
+                    <div class="footer-widget mb--50">
+                        <div class="textwidget">
+                            <img src="{% static 'img/shop-logo.webp' %}" alt="Logo">
+                        </div>
+                    </div>
+                    <div class="footer-widget mb--50 pb--1">
+                        <ul class="footer-menu">
+                            <li><a href="{% url 'about' %}">درباره ما</a></li>
+                            <li><a href="">قوانین و مقررات</a></li>
+                            <li><a href="">تماس با ما</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-widget">
+                        Stop&Shop.com © | all rights reserved
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer End-->
 
+<!-- Search form Popup Start -->
+<div class="searchform__popup" id="searchForm">
+    <a href="#" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
+    <div class="searchform__body">
+        <p>در باکس زیر عبارت خود را وارد کنید</p>
+        <form class="searchform">
+            <input type="text" name="popup-search" id="popup-search" class="searchform__input"
+                   placeholder="جستجو در بین محصولات...">
+            <button type="submit" class="searchform__submit"><i class="flaticon flaticon-magnifying-glass-icon"></i>
+            </button>
+        </form>
+    </div>
+</div>
+<!-- Search form Popup End -->
+
+</body>
 </html>
