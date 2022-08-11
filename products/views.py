@@ -1,6 +1,7 @@
 from django .views import generic
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext as _
+from django.contrib import messages
 
 from .models import Product,  Comment
 from .forms import CommentForm
@@ -37,4 +38,3 @@ class CommentCreateView(generic.CreateView):
         obj.product = product
 
         return super().form_valid(form)
-
