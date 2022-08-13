@@ -57,3 +57,4 @@ class ProductTest(TestCase):
         self.assertNotContains(response, self.product2.title)
 
 
+
