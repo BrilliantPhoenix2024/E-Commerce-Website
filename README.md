@@ -1,6 +1,6 @@
 What is this project?
 
-# Online-shop repository is a sample of a tutorial Back-end course.
+# Online-Shop repository is a sample of a tutorial Back-end course.
 
 challenges that i deal with in this project:
 
