@@ -52,23 +52,23 @@
                                                     </td>
                                                     <td class="product-name wide-column">
                                                         <h3>
-                                                            <a href="product-details.html">{{ item.product_id.title }}</a>
+                                                            <a href="product-details.html">{{ item.product_obj.title }}</a>
                                                         </h3>
                                                     </td>
                                                     <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">۱۴۸,۰۰۰ تومان</span>
+                                                                <span class="money">{{ item.product_obj.price }}</span>
                                                             </span>
                                                     </td>
                                                     <td class="product-quantity">
                                                         <div class="quantity">
                                                             <input type="number" class="quantity-input" name="qty"
-                                                                   id="qty-1" value="2" min="1">
+                                                                   id="qty-1" value="{{ item.quantity }}" min="1">
                                                         </div>
                                                     </td>
                                                     <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">۲۹۶,۰۰۰ تومان</span>
+                                                                <span class="money">{{ item.product_obj.price }}</span>
                                                             </span>
                                                     </td>
                                                 </tr>
