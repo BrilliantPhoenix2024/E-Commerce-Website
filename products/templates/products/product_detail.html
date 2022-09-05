@@ -42,16 +42,24 @@
 {#                                <span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>#}
                             </div>
                             <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
-                                <div class="quantity-wrapper d-flex justify-content-start">
-                                    <div class="quantity">
-                                        <input type="number" class="quantity-input" name="qty" id="qty" value="1"
-                                               min="1">
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"
-                                        onclick="window.location.href='cart.html'">
-                                    {% trans 'Add to card' %}
-                                </button>
+                                <form action="{% url 'cart:cart_add' %}" method="POST">
+                                    {% csrf_token %}
+                                    {{ add_to_cart_form.as_p }}
+                                    <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"
+                                            onclick="window.location.href='cart.html'">
+                                        {% trans 'Add to card' %}
+                                    </button>
+                                </form>
+{#                                <div class="quantity-wrapper d-flex justify-content-start">#}
+{#                                    <div class="quantity">#}
+{#                                        <input type="number" class="quantity-input" name="qty" id="qty" value="1"#}
+{#                                               min="1">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2"#}
+{#                                        onclick="window.location.href='cart.html'">#}
+{#                                    {% trans 'Add to card' %}#}
+{#                                </button>#}
                             </div>
                             <div class="product-footer-meta mt-5 pt-5">
                                 <p><span class="m-0">دسته بندی ها:</span>
