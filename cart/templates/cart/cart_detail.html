@@ -33,7 +33,7 @@
                                         <tr>
                                             <th>&nbsp;</th>
                                             <th>عکس محصول</th>
-                                            <th class="text-left">نام محصول</th>
+                                            <th>نام محصول</th>
                                             <th>قیمت</th>
                                             <th>مقدار</th>
                                             <th>مجموع</th>
@@ -52,7 +52,9 @@
                                                 </td>
                                                 <td class="product-name wide-column">
                                                     <h3>
-                                                        <a href="{{ item.product_obj.get_absolute_url }}">{{ item.product_obj.title }}</a>
+                                                        <a href="{{ item.product_obj.get_absolute_url }}">
+                                                            {{ item.product_obj.title }}
+                                                        </a>
                                                     </h3>
                                                 </td>
                                                 <td class="product-price">
@@ -62,7 +64,7 @@
                                                 </td>
                                                 <td class="product-quantity">
                                                     <form action="{% url 'cart:cart_add' item.product_obj.id %}"
-                                                          method="POST">
+                                                          method="POST" class="d-flex">
                                                         {% csrf_token %}
                                                         <div class="quantity">
                                                             <input type="number"
@@ -72,9 +74,9 @@
                                                                    value="{{ item.quantity }}"
                                                                    min="1"
                                                             >
-                                                            {{ item.product_update_quantity_form.inplace }}
-                                                            <button type="submit"></button>
                                                         </div>
+                                                        {{ item.product_update_quantity_form.inplace }}
+                                                        <button type="submit" class="small"><i class="fa fa-refresh"></i></button>
                                                     </form>
                                                 </td>
                                                 <td class="product-total-price">
