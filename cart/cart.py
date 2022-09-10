@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.utils.translation import gettext as _
 
 from products.models import Product
 
@@ -33,8 +34,8 @@ class Cart:
         else:
             self.cart[product_id]['quantity'] += quantity
 
-        messages.success(self.request, '.Product successfully added to Cart')
-        
+        messages.success(self.request, _('.Product successfully added to Cart'))
+
         self.save()
 
     def remove(self, product):
