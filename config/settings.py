@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
+    'jalali_cal.apps.JalaliCalConfig',
 ]
 
 SITE_ID = 1
