@@ -1,5 +1,8 @@
 {% extends '_base.html' %}
+
 {% load i18n %}
+{% load persian_trans_tags %}
+{% load humanize %}
 
 {% block page_content %}
 
@@ -65,7 +68,7 @@
                                                                 <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
                                                             </h3>
                                                             <div class="product-price-wrapper mb--30">
-                                                                <span class="money text-success">{{ product.price }} {% trans '$' %}</span>
+                                                                <span class="money text-success">{{ product.price|intcomma:False|translate_number }} {% trans '$' %}</span>
                                                                 {#                                                            <span class="money-separator">-</span>#}
                                                                 {#                                                            <span class="old-price text-danger">#}
                                                                 {#                                                                <span class="money text-danger">۸۰,۰۰۰ تومان</span>#}
